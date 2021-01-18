@@ -3,7 +3,8 @@
 This repository that will help document some of my progress in learning about Data Structures and Algorithms. Below is some of the things that I want to cover. 
 
 ## Plan 
-- Read and learn about Data Structures from Aditya's Grokking Algorithms. 
+- Read and learn about Data Structures from Aditya's Grokking Algorithms everyday until complete to build on foundation.
+  - Manually type out and execute examples from [grokking_algorithms](https://github.com/egonschiele/grokking_algorithms)
 - Start doing 0.5h of HackerRank a day 
 
 ## The Essentials
