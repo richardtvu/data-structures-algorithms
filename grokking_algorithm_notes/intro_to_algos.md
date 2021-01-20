@@ -22,8 +22,9 @@ Each data structure or algorithm has **trade-offs** that make them useful for on
 - Making a recommendation system using k-nearest neighbors
 - Efficiently approximating solutions to problems using greedy algorithms 
 
-## Binary Search?
+## Binary Search
 
+### What is it? 
 It's a much more efficient search than **sequential search**, which is looking at the indexes in an array one by one, which would take O(n) time to find a search value. 
 
 **Binary search** is an algorithm for finding a value in a sorted array in O(log n) time. Basically, you:
@@ -40,3 +41,46 @@ What's a requirement/assumption for the binary search?
 - It requires the list be **sorted**, in some order. Otherwise, you can't eliminate half the indexes to search through because the search value might be in _any_ of the indexes. In a randomized list, binary search won't work. 
 
 
+### The Binary Search Code (Practice/Recall):
+
+```python 
+# Binary Search 
+def binary_search(list, item): 
+    lo = 0
+    hi = len(list)-1
+
+    while (lo <= hi):
+        mid = (lo+hi) // 2
+        guess = list[mid] 
+        if guess == item:
+            return mid
+        if guess > item:
+            hi = mid-1
+        if guess < item:
+            lo = mid+1
+    return None
+```
+
+### Exercises
+
+#### 1.1 Suppose you have a sorted list of 128 names, and you're searching through it using binary search. What's the maximum number of steps it would take? 
+
+Binary search should take O(log<sub>2</sub>n) steps in the worst case. It should take O(log<sub>2</sub>128) steps, which is 2<sup>steps</sup> = 128. Therefore, the maximum number of steps takenw ould be 7. 
+
+#### 1.2 If you double the size of the list, w at's the maximum number of steps now? 
+- If you double the size of the list, then the maximum number of steps goes up by one, to 8. 
+
+#### For 2<sup>n</sup> = steps
+| n | steps | 
+| 1 | 2 | 
+| 2 | 4 | 
+| 3 | 8 | 
+| 4 | 16 | 
+| 5 | 32 | 
+| 6 | 64 | 
+| 7 | 128 | 
+| 8 | 256 | 
+
+
+
+### Running Time 
