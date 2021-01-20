@@ -84,3 +84,36 @@ Binary search should take O(log<sub>2</sub>n) steps in the worst case. It should
 
 
 ### Running Time 
+
+What is **running time**? 
+- The number of steps it will take to run an algorithm, which will depend on the size of the input, n. 
+
+What is **linear time**? 
+- Taking as many steps to complete an algorithm as there are items in the input. 
+- To be more precise, the time it takes to complete an algorithm grows at the same rate as the size of the input. If it takes one second to process a list of one item, then it'll take one million seconds to process a list of one million items. 
+
+What is **logarithmic time** (aka log time)? 
+- The time it takes to complete an algorithm will be O(log n), the growth rate of the running time will grow slowly relative to how big n gets. 
+
+## Big O notation
+
+A way of telling you how fast an algorithm is, as the input grows. 
+
+### Why is it important? 
+
+The run time of algorithms differ drastically when the size of the list grows to massive proportions. For instance, a list with a hundred items will take 100 steps for linear time and 7 steps with log<sub>2</sub>n time. That's only about 15x difference in run time. _However_, the run time becomes 1,000,000,000 steps for O(n) where n = 1,000,000,000. By contrast, log n time would take only 32 steps, which is 33 million times faster. U
+
+Understanding Big O allows you to choose the appropriate algorithm as n becomes very large. 
+
+### What does Big O mean? 
+
+It means that in the _worst case_, the algorithm will never take more than the number of steps indicated by the Big O notation. For instance, O(n) means that the algorithm will never take more than n steps to complete. Even if you find what you're looking for in one step, it's still O(n) because it could take n steps in the worst case. 
+
+### What are some Big O run times? 
+- O(log n) - log time, e.g. binary search
+- O(n) - linear time, e.g. sequential search
+- O(n log n) - e.g. quicksort
+- O(n<sup>2</sup>) - exponential time, e.g. selection sort
+- O(n!) - factorial time, super slow
+
+![Visual from Grokking Algos](\images\o-runtimes-chapter-1-visual.png)
