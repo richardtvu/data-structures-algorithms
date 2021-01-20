@@ -18,6 +18,6 @@ def binary_search(list, item):
 
 my_list = [1, 3, 5, 7, 9]   # Test the function 
 
-print binary_search(my_list, 3) # => 1 List indices start at 0, 
+print(binary_search(my_list, 3)) # => 1 List indices start at 0, 
                                 # so the second slot has an index of 1
-print binary_search(my_list, -1) # => None, the item wasn't found. 
+print(binary_search(my_list, -1)) # => None, the item wasn't found. 
