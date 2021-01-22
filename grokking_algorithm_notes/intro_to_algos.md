@@ -121,3 +121,12 @@ It means that in the _worst case_, the algorithm will never take more than the n
 
 ### Exercises 1.3-1.6 (p. 17)
 
+> 1.3 You have a name, and you want to ind the person’s phone number
+in the phone book.
+> 1.4 You have a phone number, and you want to ind the person’s name
+in the phone book. (Hint: You’ll have to search through the whole
+book!)
+> 1.5 You want to read the numbers of every person in the phone book.
+> 1.6 You want to read the numbers of just the As. (his is a tricky one! It involves concepts that are covered more in chapter 4. Read the
+answer—you may be surprised!)
+
