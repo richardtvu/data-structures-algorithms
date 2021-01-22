@@ -117,3 +117,7 @@ It means that in the _worst case_, the algorithm will never take more than the n
 - O(n!) - factorial time, super slow
 
 ![Visual from Grokking Algos](\images\o-runtimes-chapter-1-visual.png)
+
+
+### Exercises 1.3-1.6 (p. 17)
+
