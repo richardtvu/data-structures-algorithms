@@ -121,12 +121,24 @@ It means that in the _worst case_, the algorithm will never take more than the n
 
 ### Exercises 1.3-1.6 (p. 17)
 
-> 1.3 You have a name, and you want to ind the person’s phone number
+> 1.3 You have a name, and you want to find the person’s phone number
 in the phone book.
-> 1.4 You have a phone number, and you want to ind the person’s name
+
+The phone books I know of are sorted in alphabetical order, which means you can treat phone books like a sorted array and perform a binary search on them. In the worst case, you can check whether a person's number is in the book in O(log n) time. 
+
+> 1.4 You have a phone number, and you want to find the person’s name
 in the phone book. (Hint: You’ll have to search through the whole
 book!)
+
+You can't do a binary search because the phone book isn't sorted in terms of phone numbers. The names of people are sorted in alphabetical order, but the phone number values aren't. Therefore, the worst case will take O(n) time as you might have to look through every single phone number. 
+
 > 1.5 You want to read the numbers of every person in the phone book.
+
+O(n) time. 
+
 > 1.6 You want to read the numbers of just the As. (his is a tricky one! It involves concepts that are covered more in chapter 4. Read the
 answer—you may be surprised!)
+
+O(n) time. While you can assume that an approximately equal distribution of letters, so As should only be about 1/26th of the phone book, big Oh notation drops the constant factors. That is, O(n/26) is basically O(n). 
+
 
