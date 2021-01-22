@@ -4,7 +4,6 @@
 
 - Be able to write a search algorithm from scratch: **binary search**
 - Review Big O notation, running time
-- Review **recursion**
 
 ## Introduction 
 
