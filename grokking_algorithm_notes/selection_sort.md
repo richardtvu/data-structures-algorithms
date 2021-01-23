@@ -67,7 +67,7 @@ What are the downsides of linked lists?
 
 ### Why does it take O(n) time to insert an element into an array? Suppose you want to insert an element at the beginning of an array? How would you do it? How long would it take?
 
-O(n) time means that in the worst case, it takes about n steps to insert an element into an array. When you insert an element into the last available spot in an array, you don't have to move any other element, so it takes O(1) time. However, if there is already a value in that spot, then you have to move that value over to the right by one. For each extra index that's already full, n, the number of steps taken grows by n factors, so that's O(n). 
+O(n) time means that in the worst case, it takes about n steps to insert an element into an array. When you insert an element into the last available spot in an array, you don't have to move any other element, so it takes O(1) time. However, if there is already a value in that spot, then you have to move that value over to the right by one. For each extra index that's already full, n, the number of steps taken grows by n factors, so that's O(n).
 
 Suppose you have an array with 5 spots: `_ _ _ _ _`.
 
@@ -76,21 +76,66 @@ Suppose you have an array with 5 spots: `_ _ _ _ _`.
    1. `_ 1 _ _ _`. Now, you can insert 2.
    2. `2 1 _ _ _`. That took an extra step.
 3. Inserting another element, 3, into index 0 take yet another step because now you have to move elements 2 and 1.
-   1. `2 _ 1 _ _ ` First, move 1 so that 2 can be moved over. 
-   2. `_ 2 1 _ _ ` Second, move 2 over to the right so 3 can fit. 
-   3. `3 2 1 _ _ ` Now you can insert 3. 
+   1. `2 _ 1 _ _ ` First, move 1 so that 2 can be moved over.
+   2. `_ 2 1 _ _ ` Second, move 2 over to the right so 3 can fit.
+   3. `3 2 1 _ _ ` Now you can insert 3.
 
-### Exercise 
+### Exercise
 
 > 2.1 Suppose you’re building an app to keep track of your finances.
 > Every day, you write down everything you spent money on. At the end of the month, you review your expenses and sum up how much you spent. So, you have lots of inserts and a few reads. Should you use an array or a list?
 
-Since there are few reads, then random access shouldn't be an issue, so that's one less reason to use an array. 
+Since there are few reads, then random access shouldn't be an issue, so that's one less reason to use an array.
 
-The next thing to consider is _where_ you want to be able to insert the items. If it's into any particular spot, then it'll take O(n) time for insertion using an array or O(1) for a linked list. However, if it's at the end of the list sequentially, then it'll be O(1) time for both linked lists and arrays. I'll assume that you want to be able to organize the list, to make things easier for you to keep track of. Sorting involves insertion, deletions, etc, which takae O(N) time in arrays. Therefore, I'd recommend linked lists so you can insert items wherever you want. 
+The next thing to consider is _where_ you want to be able to insert the items. If it's into any particular spot, then it'll take O(n) time for insertion using an array or O(1) for a linked list. However, if it's at the end of the list sequentially, then it'll be O(1) time for both linked lists and arrays. I'll assume that you want to be able to organize the list, to make things easier for you to keep track of. Sorting involves insertion, deletions, etc, which takae O(N) time in arrays. Therefore, I'd recommend linked lists so you can insert items wherever you want.
 
+### Inserting into the middle of the list
 
+If you want to order the list, it's easier to do so with the linked lists instead of arrays. Just change what the previous element points to:
+![](images/2021-01-23-07-16-00.png)
 
+With arrays, you have to move items down:
+![](images/2021-01-23-07-16-28.png)
+
+### Deletions?
+
+Lists are better here too. Lists beat arrays in insertions and deletions (assuming you have access to them), but arrays beat lists in random access (read data)
+
+![](images/2021-01-23-07-17-16.png)
+
+What is **random access**?
+
+- Being able to get the value of any element in the list
+
+What is **sequential access**?
+
+- Getting the values of elements in a list one by one, from beginning to end.
+
+### Exercises 2.2-2.5
+
+> 2.2 Suppose you’re building an app for restaurants to take customer orders. Your app needs to store a list of orders. Servers keep adding orders to this list, and chefs take orders of the list and make them. It’s an order queue: servers add orders to the back of the queue, and
+> the chef takes the first order of the queue and cooks it.
+> Would you use an array or a linked list to implement this queue? (Hint: Linked lists are good for inserts/deletes, and arrays are good for random access. Which one are you going to be doing here?)
+
+It seems that the cook is just cooking things in the order they receive them. That takes O(1) time to look at the first item and cook it. Both arrays and linked lists provide easy access to the first item. Therefore, it doesn't really matter whether you use linked lists or arrays for looking up the first item. The thing is that you don't know how many orders will come in, so the array might get filled up and you waste time trying to make a new array. Instead, I'd use a linked list because you can keep adding items to the end of it.
+
+> 2.3 Let’s run a thought experiment. Suppose Facebook keeps a list of usernames. When someone tries to log in to Facebook, a search is done for their username. If their name is in the list of usernames, they can log in. People log in to Facebook pretty oten, so there are
+> a lot of searches through this list of usernames. Suppose Facebook uses binary search to search the list. Binary search needs random access—you need to be able to get to the middle of the list of usernames instantly. Knowing this, would you implement the list as an array or a linked list?
+
+Array, which supports random access. Binary search requires being able to access the middle of the list immediately instead of sequentially accessing items one by one. Linked lists would require looking at each item one by one which would be way too slow.
+
+> 2.4 People sign up for Facebook pretty oten, too. Suppose you decided to use an array to store the list of users. What are the downsides of an array for inserts? In particular, suppose you’re using binary search to search for logins. What happens when you add new users to an array?
+
+Insertions and deletions have a runtime of O(n). When you use a binary search for logins, you have to keep the array sorted. That means there's a good chance you'll be inserting items into the middle of the list, which would be O(n) time... which would take a while.
+
+> 2.5. In reality, Facebook uses neither an array nor a linked list to store user information. Let’s consider a hybrid data structure: an array of linked lists. You have an array with 26 slots. Each slot points to a linked list. For example, the first slot in the array points to a linked list containing all the usernames starting with a. The second slot points to a linked list containing all the usernames starting with b, and so on.
+
+    ![](images/2021-01-23-07-26-32.png)
+
+> Suppose Adit B signs up for Facebook, and you want to add them to the list. You go to slot 1 in the array, go to the linked list for slot 1, and add Adit B at the end. Now, suppose you want to search for Zakhir H. You go to slot 26, which points to a linked list of all the Z names. hen you search through that list to ind Zakhir H.
+> Compare this hybrid data structure to arrays and linked lists. Is it slower or faster than each for searching and inserting? You don’t have to give Big O run times, just whether the new data structure would be faster or slower.
+
+This hybrid data structure would be faster than arrays for insertions and deletions because you'd quickly find the linked list it is in and then take advantage of the linked list O(1) insertion/deletion run time. However, for searching it'd be slower than the array because you'd have to sequentially access names in the 'Z' linked list. 
 
 ## Selection sort
 
