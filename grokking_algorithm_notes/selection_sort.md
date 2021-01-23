@@ -34,6 +34,8 @@ What happens if there isn't enough allocated space to store everything next to e
 - You have to ask the computer for another memory spot. 
 ![](images/2021-01-22-07-10-23.png)
 
+# Continue with page 24 of notes. 
+
 
 ## Selection sort
 
