@@ -135,8 +135,23 @@ Insertions and deletions have a runtime of O(n). When you use a binary search fo
 > Suppose Adit B signs up for Facebook, and you want to add them to the list. You go to slot 1 in the array, go to the linked list for slot 1, and add Adit B at the end. Now, suppose you want to search for Zakhir H. You go to slot 26, which points to a linked list of all the Z names. hen you search through that list to ind Zakhir H.
 > Compare this hybrid data structure to arrays and linked lists. Is it slower or faster than each for searching and inserting? You don’t have to give Big O run times, just whether the new data structure would be faster or slower.
 
-This hybrid data structure would be faster than arrays for insertions and deletions because you'd quickly find the linked list it is in and then take advantage of the linked list O(1) insertion/deletion run time. However, for searching it'd be slower than the array because you'd have to sequentially access names in the 'Z' linked list. 
+This hybrid data structure would be faster than arrays for insertions and deletions because you'd quickly find the linked list it is in and then take advantage of the linked list O(1) insertion/deletion run time. However, for searching it'd be slower than the array because you'd have to sequentially access names in the 'Z' linked list.
 
 ## Selection sort
 
-## Recap
+
+## Ankified Recap
+
+**Simple Data Structure**: With an {{c1::array}}, all the elements are stored {{c2::next}} to each other in memory.
+
+- ![](images/2021-01-23-07-33-37.png)
+
+**Simple Data Structure**: With a {{c1::linked list}}, elements are stored in {{c2::different}} spots in memory.
+
+- ![](images/2021-01-23-07-36-01.png)
+
+**Arrays** allow {{c1::fast / O(1)}} {{c2::reads / random access}}.
+
+**Linked lists** allow {{c3::fast O(1)} {{c1::inserts}} and {{c2::deletes}}.
+
+- Extra: Assuming you have the relevant pointers.
