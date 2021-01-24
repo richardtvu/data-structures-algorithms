@@ -139,6 +139,48 @@ This hybrid data structure would be faster than arrays for insertions and deleti
 
 ## Selection sort
 
+### How does selection sort work?
+
+Selection sort is an algorithm that will organize the list in some order, e.g. least to greatest or greater to least. Let's assume you want to organize a list from greatest to least.
+
+1. Create a new list to store your sorted values.
+2. Iterate through the unsorted list to find the greatest value.
+3. Add the greatest value to the sorted list.
+4. Iterate through the unsorsted list to find the _next_ greatest value.
+5. Add that value to the sorted list.
+6. Repeat this process until you have a fully sorted list.
+
+What is the run time for selection sort?
+
+O(n<sup>2</sup>): It takes O(n) time to iterate through the unsorted list. To sort through the list, you have to iterate through the list _n_ times. Therefore, the run time is O(n \* n), which is O(n<sup>2</sup>).
+
+Isn't the number of items going down by one each time you iterate through the unsorted list? Why is it still O(n<sup>2</sup>)?
+
+- It is true that each time you iterate through the list you're checking one less item. That is, you're checking _n_ items on the first pass, _n_ -1, _n-2, ... 1. That's going to be on average (1/2 \* \_n_) items, which is O(n \* 1/2 \*n). However, big Oh notation doesn't care about constants, so thats still the same as O(n<sup>2</sup>).
+
+### Example Code p. 35 
+
+```python
+def findSmallest(arr):
+   smallest = arr[0]
+   smallest_index = 0
+   for i in range(1, len(arr)):
+      if arr[i] < smallest: 
+         smallest = arr[i]
+         smallest_index = i
+      return smallest_index 
+
+def selectionSort(arr):
+   newArr = []
+   for i in range(len(arr)):
+      smallest = findSmallest(arr)     # Get the smallest element in the unsorted array
+      newArr.append(arr.pop(smallest)) # Add the element to the new array.
+   return newArr                       # Returns the sorted array.
+
+print selectionSort([5, 3, 6, 2, 10]) 
+```
+
+
 
 ## Ankified Recap
 
