@@ -158,17 +158,17 @@ Isn't the number of items going down by one each time you iterate through the un
 
 - It is true that each time you iterate through the list you're checking one less item. That is, you're checking _n_ items on the first pass, _n_ -1, _n-2, ... 1. That's going to be on average (1/2 \* \_n_) items, which is O(n \* 1/2 \*n). However, big Oh notation doesn't care about constants, so thats still the same as O(n<sup>2</sup>).
 
-### Example Code p. 35 
+### Example Code p. 35
 
 ```python
 def findSmallest(arr):
    smallest = arr[0]
    smallest_index = 0
    for i in range(1, len(arr)):
-      if arr[i] < smallest: 
+      if arr[i] < smallest:
          smallest = arr[i]
          smallest_index = i
-      return smallest_index 
+      return smallest_index
 
 def selectionSort(arr):
    newArr = []
@@ -177,10 +177,8 @@ def selectionSort(arr):
       newArr.append(arr.pop(smallest)) # Add the element to the new array.
    return newArr                       # Returns the sorted array.
 
-print selectionSort([5, 3, 6, 2, 10]) 
+print selectionSort([5, 3, 6, 2, 10])
 ```
-
-
 
 ## Ankified Recap
 
@@ -197,3 +195,99 @@ print selectionSort([5, 3, 6, 2, 10])
 **Linked lists** allow {{c3::fast O(1)} {{c1::inserts}} and {{c2::deletes}}.
 
 - Extra: Assuming you have the relevant pointers.
+
+### Selection Sort Snippet 
+
+```python
+# Fill in the blank for the selectionSort algorithm: 
+def selectionSort(arr):
+   newArr = []
+   for i in range(len(arr)):
+      smallest = findSmallest(arr)     # Get the smallest element in the unsorted array
+      newArr.append(arr.pop(smallest)) # Add the element to the new array.
+   return newArr                       # Returns the sorted array.
+```
+
+Extra: 
+```py
+def findSmallest(arr):
+   smallest = arr[0]
+   smallest_index = 0
+   for i in range(1, len(arr)):
+      if arr[i] < smallest:
+         smallest = arr[i]
+         smallest_index = i
+      return smallest_index
+
+print selectionSort([5, 3, 6, 2, 10]) # Returns [2, 3, 5, 6, 10]
+```
+
+#### V1
+
+```python
+# Fill in the blank for the selectionSort algorithm: 
+def selectionSort(___): 
+   newArr = []
+   for i in range(len(arr)):
+      smallest = findSmallest(arr)     # Get the smallest element in the unsorted array
+      newArr.append(arr.pop(smallest)) # Add the element to the new array.
+   return newArr                       # Returns the sorted array.
+```
+
+- `arr`
+
+#### V2
+
+```python
+# Fill in the blank for the selectionSort algorithm: 
+def selectionSort(arr):
+   ___________
+   for i in range(len(arr)):
+      smallest = findSmallest(arr)     # Get the smallest element in the unsorted array
+      newArr.append(arr.pop(smallest)) # Add the element to the new array.
+   return newArr                       # Returns the sorted array.
+```
+
+- `newArr = []` 
+
+#### V3
+
+```python
+# Fill in the blank for the selectionSort algorithm: 
+def selectionSort(arr):
+   newArr = []
+   _________________________
+      smallest = findSmallest(arr)     
+      newArr.append(arr.pop(smallest)) # Add the element to the new array.
+   return newArr                       # Returns the sorted array.
+```
+
+- `for i in range(len(arr)):`
+
+#### V4 
+
+```python
+# Fill in the blank for the selectionSort algorithm: 
+def selectionSort(arr):
+   newArr = []
+   for i in range(len(arr)):
+      smallest = findSmallest(arr)     # Get the smallest element in the unsorted array
+      ________________________________ 
+   return newArr                       # Returns the sorted array.
+```
+
+- `newArr.append(arr.pop(smallest))`
+
+##### V5
+
+```python
+# Fill in the blank for the selectionSort algorithm: 
+def selectionSort(arr):
+   newArr = []
+   for i in range(len(arr)):
+      smallest = findSmallest(arr)     # Get the smallest element in the unsorted array
+      newArr.append(arr.pop(smallest)) # Add the element to the new array. 
+   _____________                      
+```
+
+- `return newArr`
