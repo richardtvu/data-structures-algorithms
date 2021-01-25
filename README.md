@@ -2,10 +2,13 @@
 
 This repository that will help document some of my progress in learning about Data Structures and Algorithms. Below is some of the things that I want to cover. 
 
+**Disclaimer**: This is not a school assignment and is something I'm doing for my own benefit, so I don't make the attempt to perfect it, make it original, or always put things in my own words, or cite my sources. 
+
 ## Plan 
 - Read and learn about Data Structures from Aditya's Grokking Algorithms everyday until complete to build on foundation.
   - Manually type out and execute examples from [grokking_algorithms](https://github.com/egonschiele/grokking_algorithms)
-- Start doing 0.5h of HackerRank a day 
+- [x] Start doing 0.5h of HackerRank a day. 
+  - I started doing this on January 25, 2021. 
 
 ## The Essentials
 

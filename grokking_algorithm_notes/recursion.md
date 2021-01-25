@@ -3,9 +3,9 @@
 ## Learning Objectives
 
 - Learn what is **recursion**
-- Learn how to break a problem down into its **base case** and **recursive case**. 
+- Learn how to break a problem down into its **base case** and **recursive case**.
 
-## Recursion 
+## Recursion
 
 ### Grandma's Boxes
 
@@ -15,7 +15,7 @@ You have a box that contains other boxes. These boxes are nested, i.e. they cont
 
 ![](images/2021-01-24-07-22-48.png)
 
-There are two main ways to find the key. You can use an **iterative** aproach or a **recursive** approach. The iterative approach involves using loops whereas the recursive approach involves making an algorithm that calls itself. 
+There are two main ways to find the key. You can use an **iterative** aproach or a **recursive** approach. The iterative approach involves using loops whereas the recursive approach involves making an algorithm that calls itself.
 
 #### Iterative
 
@@ -48,28 +48,62 @@ If the item is a key:
 
 ### What's a **recursive case**?
 
-The part of the function where the function calls itself. 
+The part of the function where the function calls itself.
 
 ```py
 def countdown(number):
     print(number)
-    countdown(number-1) # The function calls itself. 
-``` 
+    countdown(number-1) # The function calls itself.
+```
 
-### What's a **base case**? 
+### What's a **base case**?
 
-The condition/statement you include in your code so that your program doesn't loop forever. For instance, the recursive case above will cause the program to loop forever because there is nothing to tell the program to stop. 
+The condition/statement you include in your code so that your program doesn't loop forever. For instance, the recursive case above will cause the program to loop forever because there is nothing to tell the program to stop.
 
 To make the code stop, include a **base case**:
 
 ```py
 def countdown(number):
-    if number <= 0: # Stop counting down once we've reached 0. 
+    if number <= 0: # Stop counting down once we've reached 0.
         return
     else:           # Keep counting down for as long as our number is still greater than 0.
         countdown(number-1)
 ```
 
+## What is a **stack**?
 
-## The stack? 
+A **stack** is an organized pile of items where the items are placed on top of each other. When you want to add items to the stack, you put the items on the top. When you want to take items from the stack, you take them from the top of the stack. Basically, any time you do something with a stack, you're going to either _push_ (insert) or _pop_ (remove) items to or from the top of the stack.
+
+![](images/2021-01-25-06-51-34.png)
+
+
+### What is the **call stack**? 
+
+A call stack is a **stack** used by the computer to keep track of the function calls and the variables for the function calls. 
+
+When the computer calls a function, it adds the function call and the variables values for that function to the stack. 
+
+![](images/2021-01-25-06-53-59.png)
+
+If that the function calls another function before it finishes running, then the computer _pushes_ that second function to the top of the stack. The computer pauses execution of the first function, which means that the first function was _partially completed_. 
+
+![](images/2021-01-25-06-54-49.png)
+
+When the computer is finished with the second function, it _pops_ it off and returns to running the first function call. 
+
+![](images/2021-01-25-06-55-21.png)
+
+The computer picks up where it left off with the first function call and then repeats the above process if it calls another function. 
+
+![](images/2021-01-25-06-56-47.png)
+
+![](images/2021-01-25-06-57-04.png)
+
+Then, once the function is rully run, the function is also popped off the call stack and there is nothing else left to run. 
+
+## Exercise
+
+> 3.1 Suppose I show you a call stack like this.
+
+![](images/2021-01-25-06-57-54.png)
 
