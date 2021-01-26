@@ -107,3 +107,20 @@ Then, once the function is rully run, the function is also popped off the call s
 
 ![](images/2021-01-25-06-57-54.png)
 
+> What information can you give me, just based on this call stack?
+
+I think you can say that the "Greet" function is partially completed and that it has called the "Green2" function. The "Greet" function is paused. The Greet2 funciton makes use of the name variable like the Greet function. Once the Greet2 function completes, then the Greet function will resume execution. Once the Greet function is done, then the call stack is empty. 
+
+> 3.2 Suppose you accidentally write a recursive function that runs forever. As you saw, your computer allocates memory on the stack for each function call. What happens to the stack when your recursive function runs forever?
+
+The call stack continues to grow for as long as the recursive function runs. If the function runs forever, then the call stack runs forever. 
+
+Updated answer after checking the answers: The computer has a limited amount of memory. The call stack requries an increasing amount of memory as the recursive function runs. Eventually, the call stack will require more memory than the computer has available. Therefore, the computer will stop running due to a **stack-overflow** error. 
+
+## Recap Ankified
+
+{{c1::Recursion}} is when a function calls {{c2::iteself}}. 
+
+Every recursive function has two cases: the {{c1::base}} case and the {{c2::recursive}} case. 
+
+All function calls go onto the {{c1::call}} stack. 
