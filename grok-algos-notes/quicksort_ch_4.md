@@ -138,8 +138,22 @@ Base case: max(6) ---> 6
 In other words, the max of a list is the max of its sublists. 
 
 ```py
-def max(list):
-    if len(list) == 1: 
-        return list[0] 
+# Takes in a list and the current max, which starts at 0. 
+def max(list, currMax):
+    # If the list is empty, then the max of that list is 0. 
+    if len(list) == 0: 
+        return currMax
+    # If the list has only one element and it's greater than the current max, then that element is the current max. 
+    if len(list) == 1 and list[0] > currMax: 
+        return list[0]
+    else: 
+    # Return the current max. 
+        return currMax 
+    # If the list has more than one element, then max is the max between the first element in the list and the current maximum for the list. 
+    if list[0] > currMax:
+        return max(list[1, len(list)], list[0])
+    
+    return max(list[1, len(list), currMax])
+```
 
 # Continue trying to solve 4.3 exercise... writing a recursive function for finding the max. 
