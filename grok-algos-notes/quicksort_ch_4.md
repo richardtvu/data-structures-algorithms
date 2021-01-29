@@ -96,7 +96,7 @@ def count(list):
 
 > 4.3 Find the maximum number in a list. 
 
-First attempt
+Attempt
 ```py
 def max(list): 
     if len(list) == 0: 
@@ -156,4 +156,30 @@ def max(list, currMax):
     return max(list[1, len(list), currMax])
 ```
 
-# Continue trying to solve 4.3 exercise... writing a recursive function for finding the max. 
+> 4.4 Remember binary search from chapter 1? It's a divide-and-conquer algorithm, too. Can you come up with the base case and recursive case for binary search? 
+
+- **Base case** When there are zero elements remaining, then the binary search will return None/null/-1 to indicate the target value. 
+
+- **Recursive case**: While the range of elements to search through is one or more elements, the binary search will:
+    1. The binary search will guess that the target value is in the middle of the array. 
+    2. If the guess is equal to the target value, then binary search will return the index of the guess. 
+    3. If the guess is greater than the target value, then it'll search in the middle of the bottom half of the array. 
+    4. If the guess is smaller than the target value, then it'll search in the middle of the top half of the array. 
+
+```py
+# Recursive Binary Search Algorithm Attempt 
+def binary_search(list, lo, hi, target): 
+    # Base Case: There are no elements to check. 
+    if ( lo > hi ): # e.g. 0 > -1
+        return None
+    # Recursive Case: There are at least two elements to check. 
+    mid = (lo + hi) // 2
+    guess = list[mid]
+    if guess == target: 
+        return mid
+    if guess > target: 
+        hi = mid-1
+    if guess < target: 
+        lo = mid+1
+    return binary_search(list, lo, hi, target)
+```
