@@ -183,3 +183,51 @@ def binary_search(list, lo, hi, target):
         lo = mid+1
     return binary_search(list, lo, hi, target)
 ```
+
+## Quicksort 
+
+What is **quicksort**? 
+- A sorting algorithm based on the divide and conquer method. 
+- What are the base cases of quicksort? 
+    - An empty array and an array with only one element. 
+
+```py
+def quicksort(array):
+    if len(array) < 2:
+        return array
+```
+
+# Continue w/ quicksort notes 
+
+### Exercises
+
+> How long would each of these operations take in Big O notation? 
+> 4.5. Printing the value of each element in an array. 
+
+O(n). You are applying a constant time operation, i.e. printing a value, to _each_ element in the array. Thus, for an array of size _n_, you're printing values _n_ times. 
+
+> 4.6. Doubling the value of each element in an array.
+
+O(n). See 4.5. 
+
+> 4.7 Doubling the value of just the first element in an array. 
+
+O(1). No matter how big the array is, you're only going to do the constant time operation once. 
+
+> 4.8. Creating a multiplication table with all the elements in teh array. So if your array is [2, 3,  7, 8, 10], you first multiply every element by 2, then multiply every element by 3, then by 7, and so on. 
+
+For each _n_-th element in the array, you're multiplying it by _n-1_ elements in the array. Therefore, you're doing _n_ * (_n_-1) operations, which is O(n<sup>2</sup>) operations. 
+
+## Recap - Ankified 
+
+{{c2::D&C (Divide and conquer)::This method used for solving problems }} works by {{c1::chunking/breaking down}} a problem into {{c1::smaller}} and {{c1::smaller}} pieces. 
+
+Why is **quicksort** sometimes faster than **merge sort**? 
+- The constant factor in quicksort is faster than merge sort, so in the average case where both have O(n log n) performance, quicksort will be faster. 
+
+Why does the constant almost never matter for simple search vs. binary search? 
+- O(log n) is so much faster than O(n) when your list gets big. 
+
+
+If you're using D&C on a list, the base case is probably an {{c1::empty}} array or an array with {{c2::one}} element. 
+- D&C = divide and conuquer 
