@@ -172,7 +172,7 @@ def binary_search(list, lo, hi, target):
     # Base Case: There are no elements to check. 
     if ( lo > hi ): # e.g. 0 > -1
         return None
-    # Recursive Case: There are at least two elements to check. 
+    # Recursive Case: There are at least one elements to check. 
     mid = (lo + hi) // 2
     guess = list[mid]
     if guess == target: 
