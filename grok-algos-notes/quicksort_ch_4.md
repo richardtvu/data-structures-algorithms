@@ -197,7 +197,16 @@ def quicksort(array):
         return array
 ```
 
-# Continue w/ quicksort notes on p. 60
+How do you sort an array with two elements? 
+- If the first element is larger than the second element, swap them. 
+    ![](images/2021-01-31-08-58-37.png)
+
+How do you sort an array with three elements using D&C / quicksort? 
+1. Break down the array until you get to the base case. How?
+    1. Pick a **pivot**, the element you'll use to subdivide the array into smaller pieces. 
+    2. 
+
+
 
 ### Code for quicksort? 
 
@@ -233,7 +242,7 @@ For each _n_-th element in the array, you're multiplying it by _n-1_ elements in
 
 ## Recap - Ankified 
 
-{{c2::D&C (Divide and conquer)::This method used for solving problems }} works by {{c1::chunking/breaking down}} a problem into {{c1::smaller}} and {{c1::smaller}} pieces. 
+{{c2:: D&C (Divide and conquer)::This method used for solving problems }} works by {{c1::chunking/breaking down}} a problem into {{c1::smaller}} and {{c1::smaller}} pieces. 
 
 Why is **quicksort** sometimes faster than **merge sort**? 
 - The constant factor in quicksort is faster than merge sort, so in the average case where both have O(n log n) performance, quicksort will be faster. 
