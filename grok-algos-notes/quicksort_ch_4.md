@@ -202,9 +202,19 @@ How do you sort an array with two elements?
     ![](images/2021-01-31-08-58-37.png)
 
 How do you sort an array with three elements using D&C / quicksort? 
+    ![](images/2021-02-02-19-35-16.png)
+
 1. Break down the array until you get to the base case. How?
     1. Pick a **pivot**, the element you'll use to subdivide the array into smaller pieces. 
-    2. 
+    2. Sort the elements into a sub-array of elements smaller than the pivot, the pivot, and a sub-array of elements greater than the pivot. 
+        ![](images/2021-02-02-19-35-39.png)
+    3. If there are two elements in one of the sub-arrays, repeat the quicksort process of picking a pivot and sorting the elements. 
+        ![](images/2021-02-02-19-39-32.png)
+2. Add the arrays together, recursively. 
+    1. Add the [10], [15] and [ ] together to get [10, 15]. 
+        ![](images/2021-02-02-19-41-57.png)
+    2. Add the [10, 15] and [33] together.
+        ![](images/2021-02-02-19-42-18.png) 
 
 
 
@@ -253,3 +263,81 @@ Why does the constant almost never matter for simple search vs. binary search?
 
 If you're using D&C on a list, the base case is probably an {{c1::empty}} array or an array with {{c2::one}} element. 
 - D&C = divide and conuquer 
+
+### Different Variations on Fill-In-The-Blank QuickSort Code
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot.  
+        _____________________________________________
+``` 
+- `greater = [i for i in array[1:] if i > pivot]`
+
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0]
+        ___________________________________________ 
+        greater = [i for i in array[1:] if i > pivot] 
+``` 
+- `less = [i for i in array[1:] if i <= pivot]`
+- Extra: This means create a `# Sub-array of all the elements less than the pivot. `
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        ________________
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+``` 
+- `pivot = array[0]`
+
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        ____________
+    else: 
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+``` 
+- `return array`
+- Extra: `# Base case: arrays with 0 or 1 elements are already "sorted"`
+
+
+```py
+def quicksort(array): 
+    __________________
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+``` 
+- `if len(array) < 2:`
+
+
+## To-Do
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+``` 
+
+-  [ ] What does `[i for i in array[1:]]` do on a step by step basis? 
+-  [ ] What does `[i for i in array[1:] if i > pivot]` do on a step by step basis? 
