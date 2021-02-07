@@ -104,8 +104,9 @@ Pointer #2 would be currI.
 ### Solution
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/solution/
 
-> Since the array is already sorted, we can keep two pointers iii and jjj, where iii is the slow-runner while jjj is the fast-runner. As long as nums[i]=nums[j]nums[i] = nums[j]nums[i]=nums[j], we increment jjj to skip the duplicate.
-> When we encounter nums[j]≠nums[i]nums[j] \neq nums[i]nums[j]​=nums[i], the duplicate run has ended so we must copy its value to nums[i+1]nums[i + 1]nums[i+1]. iii is then incremented and we repeat the same process again until jjj reaches the end of array.
+> Since the array is already sorted, we can keep two points _i_ and _j_, where _i_ is the slow-runner while _j_ is the fast-runner. As long as _nums[j] != nums[i]_, we increment j to skip the duplicate. 
+>
+> When we encounter _nums[j] != nums[i]_, the duplicate run has ended so we must copy its value to _nums[i+1]_. _i_ is then incremented and we repeat the same process again until _j_ reaches the end of the array.
 
 ```java
 public int removeDuplicates(int[] nums) {
@@ -122,9 +123,24 @@ public int removeDuplicates(int[] nums) {
 ```
 
 > Complexity analysis
+> - Time complexity: _O(n)_. Assume that _n_ is the length of array. Each of _i_ and _j_ traverses at most _n_ steps. 
+> - Space complexity: _O(1)_. 
 
-    Time complextiy : O(n). Assume that n is the length of array. Each of i and j traverses at most n steps.
+### Trying to Grok the Explanation 
 
-    Space complexity : O(1)
+Why didn't the solution involve actually removing elements from the array and instead just shifting elements to the end? 
+- While the question _did_ ask you to remove the duplicates, it also said that you should return the first 
 
-What does this mean? How does it work? 
+# Continue expanding explanation for why we're not actually removing the elements... 
+
+Why is having two pointers, _i_ and _j_ important? 
+- Using two pointers will help us keep track of when a number is unique, with the _i_-th pointer, or if the number is a duplicate, with the _j_-th pointer. 
+
+What is `removeDuplicates()` supposed to do? 
+- `removeDuplicates()` should return the length of the array if there were no duplicates. 
+
+How does `removeDuplicates()` determine the number of unique elements? 
+1. `removeDuplicates()` takes in an array of integers, `nums`
+2. Check for the base case: If the `nums` has no elements, then return 0. 
+    - Duplicates require that there by two of the same elements. Since there are no elements, there cannot be duplicates. 
+3. 
