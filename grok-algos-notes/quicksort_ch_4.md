@@ -225,9 +225,12 @@ def quicksort(array):
     if len(array) < 2: 
         return array # Base case: arrays with 0 or 1 elements are already "sorted"
     else: 
-        pivot = array[0]
+        pivot = array[0] # Recursive Case 
         less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
         greater = [i for i in array[1:] if i > pivot] 
+
+        return quicksort(less) + [pivot] + quicksort(greater) 
+
 ```
 
 
@@ -274,6 +277,8 @@ def quicksort(array):
         pivot = array[0]
         less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot.  
         _____________________________________________
+
+        return quicksort(less) + [pivot] + quicksort(greater)
 ``` 
 - `greater = [i for i in array[1:] if i > pivot]`
 
@@ -298,6 +303,8 @@ def quicksort(array):
         ________________
         less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
         greater = [i for i in array[1:] if i > pivot] 
+
+        return quicksort(less) + [pivot] + quicksort(greater)
 ``` 
 - `pivot = array[0]`
 
@@ -310,6 +317,8 @@ def quicksort(array):
         pivot = array[0]
         less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
         greater = [i for i in array[1:] if i > pivot] 
+
+        return quicksort(less) + [pivot] + quicksort(greater) 
 ``` 
 - `return array`
 - Extra: `# Base case: arrays with 0 or 1 elements are already "sorted"`
@@ -323,8 +332,63 @@ def quicksort(array):
         pivot = array[0]
         less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
         greater = [i for i in array[1:] if i > pivot] 
+
+        return quicksort(less) + [pivot] + quicksort(greater)
 ``` 
 - `if len(array) < 2:`
+
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0] # Recursive Case 
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+
+        _____________________________________________________
+``` 
+- return quicksort(less) + [pivot] + quicksort(greater) 
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0] # Recursive Case 
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+
+        return _______________ + [pivot] + quicksort(greater)
+``` 
+- quicksort(less)
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0] # Recursive Case 
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+        
+        return quicksort(less) + [pivot] + __________________
+```
+- quicksort(greater)
+
+```py
+def quicksort(array): 
+    if len(array) < 2: 
+        return array # Base case: arrays with 0 or 1 elements are already "sorted"
+    else: 
+        pivot = array[0] # Recursive Case 
+        less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
+        greater = [i for i in array[1:] if i > pivot] 
+        
+        return quicksort(less) + _______ + quicksort(greater) 
+```
+- [pivot]
 
 
 ## To-Do
@@ -334,10 +398,14 @@ def quicksort(array):
     if len(array) < 2: 
         return array # Base case: arrays with 0 or 1 elements are already "sorted"
     else: 
-        pivot = array[0]
+        pivot = array[0] # Recursive Case 
         less = [i for i in array[1:] if i <= pivot] # Sub-array of all the elements less than the pivot. 
         greater = [i for i in array[1:] if i > pivot] 
+
+        return quicksort(less) + [pivot] + quicksort(greater) 
 ``` 
+
+
 
 -  [ ] What does `[i for i in array[1:]]` do on a step by step basis? 
 -  [ ] What does `[i for i in array[1:] if i > pivot]` do on a step by step basis? 
