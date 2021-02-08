@@ -144,3 +144,38 @@ How does `removeDuplicates()` determine the number of unique elements?
 2. Check for the base case: If the `nums` has no elements, then return 0. 
     - Duplicates require that there by two of the same elements. Since there are no elements, there cannot be duplicates. 
 3. 
+
+
+### What would the solution look like if it were converted to Python?
+
+> Java Solution: 
+
+```java
+public int removeDuplicates(int[] nums) {
+    if (nums.length == 0) return 0;
+    int i = 0;
+    for (int j = 1; j < nums.length; j++) {
+        if (nums[j] != nums[i]) {
+            i++;
+            nums[i] = nums[j];
+        }
+    }
+    return i + 1;
+}
+```
+
+Python Attempt? 
+
+```python 
+def removeDuplicates(self, nums: List[int]) -> int: 
+    # An empty list cannot have duplicates, as duplicates require a list to have two of the same element. 
+    if len(nums) == 0: 
+        return 0
+    i = 0 
+    for j in range(1, len(nums)): 
+        if nums[j] != nums[i]: 
+            i += 1
+            nums[i] = nums[j] 
+    
+    return i + 1
+```
