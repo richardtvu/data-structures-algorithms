@@ -291,6 +291,8 @@ def quicksort(array):
         pivot = array[0]
         ___________________________________________ 
         greater = [i for i in array[1:] if i > pivot] 
+
+        return quicksort(less) + [pivot] + quicksort(greater)
 ``` 
 - `less = [i for i in array[1:] if i <= pivot]`
 - Extra: This means create a `# Sub-array of all the elements less than the pivot. `
