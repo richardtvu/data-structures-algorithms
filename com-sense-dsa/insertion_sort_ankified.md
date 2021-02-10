@@ -277,3 +277,4 @@ def insertion_sort(arr):
 ```
 
 - `arr[pos + 1] = temp`
+
