@@ -23,6 +23,7 @@ def insertion_sort(array):
 ## Variations
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     ____________________________
         temp_value = arr[i]
@@ -43,6 +44,7 @@ def insertion_sort(arr):
 
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -64,6 +66,7 @@ def insertion_sort(arr):
 
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -84,6 +87,7 @@ def insertion_sort(arr):
 - `temp = arr[i]`
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -104,6 +108,7 @@ def insertion_sort(arr):
 - `pos = i - 1`
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -124,6 +129,7 @@ def insertion_sort(arr):
 - `i - 1`
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -144,6 +150,7 @@ def insertion_sort(arr):
 - `while pos >= 0:`
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -165,6 +172,7 @@ def insertion_sort(arr):
 
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -185,6 +193,7 @@ def insertion_sort(arr):
 - `arr[pos + 1] = arr[pos]`
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -205,6 +214,7 @@ def insertion_sort(arr):
 
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -225,6 +235,7 @@ def insertion_sort(arr):
 - `pos = pos - 1`
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -246,6 +257,7 @@ def insertion_sort(arr):
 
 
 ```py
+# Python: Fill in the blank
 def insertion_sort(arr):
     for i in range(1, len(arr)):
 
@@ -265,4 +277,3 @@ def insertion_sort(arr):
 ```
 
 - `arr[pos + 1] = temp`
-
