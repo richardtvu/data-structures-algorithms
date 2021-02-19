@@ -56,9 +56,28 @@ As the size of the input increases, the **growth** of the N<sup>2</sup> term bec
 
 ### What is **Amortized Time**? 
 
-Amortized time is the idea that an operation that takes O(N) time in the worst case and O(1) in the average case, will average out to O(1) because the worst case will happen less and less. 
+Amortized time is the idea that an operation that takes O(N) time in the worst case, which happens less and less, and O(1) in the average case... will typically have O(1) time for the operation. 
 
-- [ ] Check out other resources on **amortized time** because my grasp of this is still loose. It seems like amortized time is basically averaging 
+
+### Examples and Exercises
+
+#### Example 1. What is the runtime of the below code?
+
+```java
+void foo(int[] arr) {
+    int sum = 0;
+    int product = 1; 
+    for (int i = 0; i < arr.length; i++) {
+        sum+= array[i];
+    }
+    for (int i = 0; i < arr.length; i++) {
+        product *= arr[i];
+    }
+    System.out.println(sum + ", " + product); 
+}
+```
+
+There are two for loops doing constant time operations. However we drop the constant, to get O(n) time complexity. 
 
 
 
