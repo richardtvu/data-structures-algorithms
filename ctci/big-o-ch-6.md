@@ -68,17 +68,42 @@ void foo(int[] arr) {
     int sum = 0;
     int product = 1; 
     for (int i = 0; i < arr.length; i++) {
-        sum+= array[i];
+        sum+= array[i]; // O(1)
     }
     for (int i = 0; i < arr.length; i++) {
-        product *= arr[i];
+        product *= arr[i]; // O(1)
     }
     System.out.println(sum + ", " + product); 
 }
 ```
 
-There are two for loops doing constant time operations. However we drop the constant, to get O(n) time complexity. 
+There are two for loops, each doing a constant time operation n times. The code is doing O(2N) steps, but we drop the constant faactor, so the time complexity is O(N). 
 
+#### Example 2
 
+```java
+void printPairs(int[] arr) {
+    for (int i = 0; i < arr.length; i++) { // O(n)
+        for (int j = 0; j < arr.length; j++) { // O(n)
+            System.out.println(arr[i] + "," arr[j]); // O(1)
+        }
+    }
+}
+```
+
+O(N<sup>2</sup>) time. The print operation takes O(1) time. The inner for loop repeats the print operation N times. The outer for loop repeats the inner for loop N times. Thus, the time complexity is O(N*N), which is O(N<sup>2</sup>). 
+
+#### Example 3
+```java
+void printUnorderedPairs(int[] arr) {
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = i+1; j < arr.length; j++) {
+            System.out.println(arr[i] + "," + arr[j]); 
+        }
+    }
+}
+```
+
+The time complexity will still be O(N<sup>2</sup>). The outer for-loop repeats the inner for loop N times. The inner for-loop runs at (N-1) + (N-2) + (N-3)... 1 times.  Still, it's going to be about N<sup>2</sup>/2 which is O(N<sup>2</sup>). 
 
 
