@@ -111,4 +111,21 @@ How does Gayle explain it?
 - Basically, on the first iteration, of i, there will be _j_ runs, which are N-1. On the second iteration, it will be N-2, then N-3, ... until there are only 2 and 1 steps remaining. 
 - She says that the sum of 1 + 2 + 3 ... (N-1) steps (from above) amounts to (N)(N-1)/2 ... which is O(N<sup>2</sup>/2-N/2). You can drop the constant (i.e. the 1/2) and you can drop the non-dominant term (i.e. the N). What you have left is O(N<sup>2</sup>). 
 
-#### Example 4. 
+#### Example 4
+
+```java
+
+void printUnorderedPairs(int[] arrayA, int[] arrayB) {
+    for (int i = 0; i < arrayA.length; i++) { // O(A.length)
+        for (int j = 0; arrayB.length; j++) { // O(B.length))
+            if (arrayA[i] < arrayB[j]) {
+                System.out.println(arrayA[i] + "," + arrayB[j]); // sysout is O(1)
+            }
+        }
+    }
+}
+```
+
+The inner for-loop repeats an O(1) operation `arrayB.length` times, which we abbreviate to O(B). The outer for-loop repeats the inner for-loop O(arrayA.length) times, which we abbreviate to O(A). We don't know the lengths of arrays A and B before hand, so we are unable to combine the two as O(N<sup>2</sup>).  Therefore, the run time is O(A*B). 
+
+#### Example 5. 
