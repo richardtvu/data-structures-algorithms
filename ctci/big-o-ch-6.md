@@ -157,4 +157,4 @@ void reverse(int[] arr) {
 }
 ```
 
-The loop contents are 
+The loop contents are constant time
