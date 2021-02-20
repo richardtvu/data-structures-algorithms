@@ -129,3 +129,6 @@ void printUnorderedPairs(int[] arrayA, int[] arrayB) {
 The inner for-loop repeats an O(1) operation `arrayB.length` times, which we abbreviate to O(B). The outer for-loop repeats the inner for-loop O(arrayA.length) times, which we abbreviate to O(A). We don't know the lengths of arrays A and B before hand, so we are unable to combine the two as O(N<sup>2</sup>).  Therefore, the run time is O(A*B). 
 
 #### Example 5. 
+
+```java
+void print
