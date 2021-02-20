@@ -143,3 +143,18 @@ void printUnorderedPairs(int[] A, int[] B) {
 ```
 
 The inner-most for-loop repeats an O(1) operation 100_000 times, so it boils down to O(1). The j for-loop repeats the O(1) operation O(B.length) times, abbr as O(B) times. The outer-most loop repeats the O(B) operation O(A) times. Therefore, the run time is O(A*B). 
+
+#### Example 6. The following code reverses an array. 
+
+```java
+void reverse(int[] arr) {
+    for (int i = 0; i < arr.length/2; i++) { // O(N/2)
+        int other = arr.length - 1 - 1; // O(1)
+        int temp = arr[i]; // O(1)
+        arr[i] = arr[other]; // O(1)
+        arr[other] = temp; // O(1) 
+    }
+}
+```
+
+The loop contents are 
