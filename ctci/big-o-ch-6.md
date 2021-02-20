@@ -131,4 +131,15 @@ The inner for-loop repeats an O(1) operation `arrayB.length` times, which we abb
 #### Example 5. 
 
 ```java
-void print
+void printUnorderedPairs(int[] A, int[] B) {
+    for (int i = 0; i < A.length; i++) { // O(A.length)
+        for (int j = 0; j < B.length; j++) { // O(B.length)
+            for (int k = 0; k < 100_000; k++) { // O(100_000) boils down to O(1) operation. 
+                System.out.println(A[i] + "," + B[j]); // O(1) operation
+            }
+        }
+    }
+}
+```
+
+The inner-most for-loop repeats an O(1) operation 100_000 times, so it boils down to O(1). The j for-loop repeats the O(1) operation O(B.length) times, abbr as O(B) times. The outer-most loop repeats the O(B) operation O(A) times. Therefore, the run time is O(A*B). 
