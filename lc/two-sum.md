@@ -1,7 +1,33 @@
 # Two Sum
 
+This is the solution for the Two Sum problem from LeetCode, with some modifications to make it more readable for my purposes. 
 
-## Solution
+## 1. Brute Force
+
+Add each possible pair and return the pair whose sum is equal to the target. 
+
+```java
+public int[] twoSum(int[] nums, int target) {
+    int sum; 
+    for (int i = 0; i < nums.length; i++) {
+        for (int j = 0; j < nums.length; j++) {
+            sum = nums[i] + nums[j]; 
+            if ( sum == target && i != j) {
+                return new int[]{i, j}; 
+            }
+        }
+    }
+    return new int[]{};
+}
+```
+
+Time complexity: O(n<sup>2</sup>). The inner for-loop repeats an O(1) operation, N, times. The outer for-loop repeats the inner for-loop N times. Therefore, the performance is O(N<sup>2</sup>). 
+
+Space complexity: O(1). A variable is initialized, which takes constant space. And a int[] is initialized too. 
+
+## 2. Two-pass Hash Table
+
+## 3. Single-pass Hash Table
 
 ```java
 class Solution {
@@ -21,3 +47,7 @@ class Solution {
         return new int[]{}; 
     }
 }
+```
+
+## Study Questions 
+
