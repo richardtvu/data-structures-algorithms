@@ -51,3 +51,11 @@ class Solution {
 
 ## Study Questions 
 
+Assuming that the context for the question is included: 
+1. What does the **brute force solution** involve? 
+2. How would you use a **two-pass** hash table to solve this question? 
+3. How would you use a **single-pass** hash table to solve this problem?
+4. (include code for single-pass solution). 
+    - What is the time complexity for this solution? 
+    - What is the space complexity?
+    - What is the **trade-off** for the solution compared to a brute force solution? 
