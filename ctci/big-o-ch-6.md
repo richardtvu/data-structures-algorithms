@@ -157,4 +157,34 @@ void reverse(int[] arr) {
 }
 ```
 
-The loop contents are constant time
+O(n). The loop contents are constant time operations, O(1), that are repeated n/2 times. 
+
+#### Example 7. Which of the following are equivalent to O(N)? Why?
+
+- O(N + P), where P < N/2
+    - You can substitute (N/2) for P to get O(1.5N), which is O(N). 
+- O(2N)
+    - Drop the constant factor to get O(N). 
+- O(N + log N)
+    - Drop the non-dominant term, log N, to get O(N). 
+- O(N + M). 
+    - You don't have enough information about M to get O(N), so this remains as O(N+M). 
+
+#### Example 8. Suppose we had an algorithm that took in an array of strings, sorted each string, and then sorted the full array. What would the runtime be? 
+
+Attempt at recalling/figuring out the solution: 
+
+First off, I think that strings are stored as character arrays. I'm not sure what sorting algorithm is used on each string. The fastest sorting algorithm I know, in terms of Big Oh, is mergesort, which is O(n log n). Therefore, in the worst case for any particular string length is O(c log c), where c is the maximum number of characters in a string. Once we've sorted the string, we want to sort the array of strings. The comparison between strings to sort them might take n log n time, where n is the number of strings. 
+
+So far, we have O(c log c) and this operation is repeated O(n log n) times. Therefore it'd be Big Oh of (c * log c)*(n * log n), which would be:
+    - (c log c)(n) * (c log c)(log n)
+    - cn log c * c log c log n? 
+
+Read the next paragraph, corrections:
+
+We need to sort the strings (c log c) and do that s times (# of strings) and then sort the array (s log s) That's going to be O(sc log c) * (s log s) times. 
+
+We can factor out s to get (s)(c log c + log s)? 
+
+
+
