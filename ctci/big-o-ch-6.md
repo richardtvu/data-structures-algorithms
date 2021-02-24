@@ -186,5 +186,50 @@ We need to sort the strings (c log c) and do that s times (# of strings) and the
 
 We can factor out s to get (s)(c log c + log s)? 
 
+##### Notes after reading the solution 
 
+Define `s` to be the length of the longest string. 
+Define `a` to be the length of the array.
+Sort each string O(s log s). 
+Repeat the sorting process for _every_ string, O(a*s log s). 
+Sort all the strings. There are `a` strings. Each string comparison takes O(s) time. There are O(a log a) comparisons, so the runtime for sorting all strings is O(a*s log a) time. 
+We can combine the O(a\*s log s) + O(a\*s log a) to be O(a\*s(log a + log s)). 
+
+##### Recall attempt: 
+
+I'll define `s` as the number of strings in the array and `c` as the number of characters in the longest string. 
+
+Sorting takes O(n log n) times. Applying this logic to sorting a single string, the sorting process will take O(c log c) times. We need to that for each string, so it'll take O(s * c log c) time. 
+
+Now it's time sort all the strings. There are `s` strings. 
+
+Why does string comparison take O(c) times? Basically, you compare up to `c` characters until you figure out which string should go before the other. Only then, can you determine the order of the string and sort the strings in O(s log s) times. That's going to be O(c * s log s), which is equivalent to O(s * c log s).
+
+The total runtime would be O(s\*c log c) + O(s\*c log s). You can factor out the s*c to get O(s\*c(log c + log s)). 
+
+#### Example 9. The following simple code sums the values of all the nodes in a balanced binary search tree. What is its runtime? 
+```java
+int sum(Node node) {
+    if (node == null) return 0; // O(1) 
+    return sum(node.left) + node.value + sum(node.right); // O(2^depth) aka O(2^(log nodes)) or O(nodes, including the empty nodes)
+}
+```
+
+#### Example 10. The following method checks if a number is prime by checking for divisibility on numbers less than it. 
+
+It only needs to go up to the square root of n because if n is divisble by a number greater than its square root, then it's divisible by something smaller than it. 
+
+For example, while 33 is divisible by 11 (which is greater than the square root of 33), the "counterpart" to 11 is 3 (3*11 = 33). 33 will have already been eliminated as a prime number 3. 
+
+What is the time complexity of this function? 
+```java
+boolean isPrime(int n) {
+    for (int x = 2; x*x <= n; x++) { 
+        if (n % x == 0) return false; // O(1) 
+    }
+    return true; 
+}
+```
+
+I think the critical piece is `x*x <= n`. This looks is x<sup>2</sup> <= n. You can then take the square root of both sides to get the number of iterations in the worst case, so it would be O(n<sup>0.5</sup>). 
 
