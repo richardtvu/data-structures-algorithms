@@ -27,6 +27,25 @@ Space complexity: O(1). A variable is initialized, which takes constant space. A
 
 ## 2. Two-pass Hash Table
 
+```java
+public int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>(); 
+    
+    for (int i = 0; i < nums.length; i++) {
+        map.put(nums[i], i);
+    }
+
+    for (int i = 0; i < nums.length; i++) {
+        int complement = target - nums[i]; 
+        if (map.containsKey(complement) && map.get(complement != i)) {
+            return new int[]{i, map.get(complement)}; 
+        }    
+    }
+
+    throw new IllegalArgumentException("No two sum solution"); 
+}
+```
+
 ## 3. Single-pass Hash Table
 
 ```java
@@ -59,3 +78,4 @@ Assuming that the context for the question is included:
     - What is the time complexity for this solution? 
     - What is the space complexity?
     - What is the **trade-off** for the solution compared to a brute force solution? 
+5. How would you make the **two-pass** solution more efficient? 
