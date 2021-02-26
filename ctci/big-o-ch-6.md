@@ -233,3 +233,82 @@ boolean isPrime(int n) {
 
 I think the critical piece is `x*x <= n`. This looks is x<sup>2</sup> <= n. You can then take the square root of both sides to get the number of iterations in the worst case, so it would be O(n<sup>0.5</sup>). 
 
+#### Example 11. The following code computes n! (n factorial). What is its time complexity? 
+
+```java
+int factorial(int n) {
+    if (n < 0) return -1; // O(1)
+    else if (n == 0) return 1; // O(1)
+    else return n * factorial(n-1); 
+}
+```
+
+The factorial function will be called once for n = 1, another time for n = 2, (2 * (factorial(1)) * factorial(0)). For each additional increase in n, there will be another call, so it will be O(n). 
+
+
+#### Example 13. The following code computes the Nth Fibonacci number. 
+
+```java
+int fib(int n)  {
+    if (n <= 0) return 0;  // O(1)
+    else if (n==1) return 1; // O(1)
+    return fib(n-1) + fib(n-2); // O(2^(n-1)) which is O(2^n)
+}
+
+```
+
+The runtime is O(2<sup>n</sup>) because for each additional increase in n, there will be a doubling of function calls. 
+
+
+#### Example #14. The following prints all Fibonacci numbers from 0 to n. 
+
+```java
+void allFib(int n) {
+    for (int i = 0; i < n; i++) {
+        System.out.println(i + ": " + fib(i)); 
+    }
+}
+
+int fib(int n) {
+    if (n<=0) return 0; 
+    else if (n==1) return 1; 
+    return fib(n-1) + fib(n-2); 
+}
+```
+
+I think it will be O(2<sup>n</sup>*n). Turns out, that my answer is wrong!
+
+The reason is that n changes, as it goes from fib(1) to fib(2)... fib(n). Thus, we do 2^1 + 2^2 work... + 2^n work, which is still 2^n. 
+
+
+#### Example 12. This code counts all permutations of a string. 
+
+```java
+void permutation(String str) {
+    permutation(str, ""); 
+}
+
+void permutation(String str, String prefix) {
+    if (str.length == 0) {
+        System.out.println(prefix); // O(1)
+    } else {
+        for (int i = 0; i < str.length(); i++) { // O(length of string)
+            String rem = str.substring(0, i) + str.substring(i+1); // Not sure, O(1) or O(n)? 
+            permutation(rem, prefix + str.charAt(i)); // calling permutation... O(length of string -1). 
+        }
+    }
+}
+
+```
+
+I think it'll be at least O(N<sup>2</sup>). 
+
+##### Answer
+
+The actual answer is O(N<sup>2</sup> * N!). How did Gayle come to this conclusion? 
+1. The number of permutations for a string is expressed as a factorial (n!), where n is the number of characters in a string. Why?
+    - For a seven character word, think of it as a 7-spot array. In the first spot, you can choose any of the seven characters. But once you've put that character in the first slot, the number of characters left decreases by one to 6. Thus, the options you have goes from 7, to 6, to 5, to 4, ... to 1, which is 7!. 
+2. 
+
+
+- [ ] Continue building on this... 
