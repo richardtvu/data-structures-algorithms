@@ -305,6 +305,30 @@ void permutation(String str, String prefix) {
 }
 ```
 
+##### How does the program work according to Gayle? 
+
+How many times does `permutation` get called in its base case? 
+- n!. For a string with 5 characters, the first character has 5 options, the second character can be 4 options, ... the last character has one option for which character it can be. THus, 5x4x3x2x1, which is 5!. 
+
+How many times does permutation get called before its base case? 
+
+- Gayle says that there are n! leaves from above, and that each leaf has a path of length `n` , so the max number of function calls is `n * n!`. 
+
+What is the runtime for each function call? 
+    - What is the runtime of line 7, `System.out.println(prefix)`? 
+        - O(n), where `n` is the number of characters in the `prefix`. 
+    - What is the runtime of line 10 and line 11?
+        ```java
+        String rem = str.substring(0, i) + str.substring(i+1);
+        permutation(rem, prefix + str.charAt(i)); 
+        ``` 
+        - O(n) combined. Line 10 creates a substring of length (n-1). Line 11 adds a character to prefix, so there are `n` characters to be added, so O(n) for adding to strings. 
+    - Therefore, each function call will do O(n) work. 
+
+What is the total runtime? 
+- `Permutation` is called at most O(n * n!) and each call requires O(n) time. Therefore the total runtime is less than O(n<sup>2</sup>*n!). 
+
+
 How does the program work? 
 - A `str` is input into the `permutation(str)` function, which then calls another `permutation(str, prefix)` function. 
 - This second `permutation()` variant is a recursive function. 
@@ -328,14 +352,24 @@ How does the program work?
         }
     }
 
-
-
-What is the run time for `String rem = str.substring(0, i) + str.substring(i+1)`? 
-- How does `substring()` work? 
-    - I imagine that it could either build a character array and then add the characters from (beginningIndex, endIndex) one at a time. So that would take O(c) steps followed by copying the character the array to a string. I'm not sure how much that would take, but perhaps, maybe converting it takes a constant time, so it's only O(c) steps. 
+##### Trying to Grok the Solution 
 
 What is the runtime for `permutation(rem, prefix + str.charAt(i));`? 
 - The `str.charAt(i)` should take constant time, O(1), to access the i-th character. 
 - I'm not sure what the growth for adding a character to a string is. I imagine it would take more than constant time, maybe O(prefixLength) times. 
 
-- [ ] Continue learning how `substring()` works
+##### Study Questions / Things to Follow Up On
+
+What is the runtime for printing strings? 
+- O(n), where `n` is the length of the string.
+
+What is the runtime for string concatenation? 
+- O(n) where `n` is the number of characters to add. 
+
+What is the runtime for the `substring()` from the `String` class as of Java 8? 
+- O(n) because it [makes a copy of the string up to the number of characters specified](https://stackoverflow.com/a/4679775 ). 
+- ![](images/2021-02-27-08-38-44.png)
+
+
+
+
