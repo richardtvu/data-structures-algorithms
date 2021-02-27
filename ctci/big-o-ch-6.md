@@ -286,29 +286,56 @@ The reason is that n changes, as it goes from fib(1) to fib(2)... fib(n). Thus, 
 ```java
 void permutation(String str) {
     permutation(str, ""); 
+    // Calls and overloaded variant of permutation. 
 }
 
 void permutation(String str, String prefix) {
-    if (str.length == 0) {
-        System.out.println(prefix); // O(1)
+    if (str.length == 0) { // O(1) operation because checking the length and then printing out the value for the prefix takes constant time. 
+        System.out.println(prefix); 
+        // TODO: The prefix begins as "", but does it increase in size or something? 
     } else {
-        for (int i = 0; i < str.length(); i++) { // O(length of string)
-            String rem = str.substring(0, i) + str.substring(i+1); // Not sure, O(1) or O(n)? 
-            permutation(rem, prefix + str.charAt(i)); // calling permutation... O(length of string -1). 
+        for (int i = 0; i < str.length(); i++) { // O(str.length), which is O(n). 
+            String rem = str.substring(0, i) + str.substring(i+1); 
+            // How does substring work? 
+            // What is the number of steps? 
+            permutation(rem, prefix + str.charAt(i)); 
+            // It seems that permutation is calling itself and appending the i-th character from str to prefix. 
         }
     }
 }
-
 ```
 
-I think it'll be at least O(N<sup>2</sup>). 
+How does the program work? 
+- A `str` is input into the `permutation(str)` function, which then calls another `permutation(str, prefix)` function. 
+- This second `permutation()` variant is a recursive function. 
+    - It starts with a full `str` and an empty `prefix` string. 
+    - As long as there are characters left in `str`, the program will create a new `rem` string and copy the `str` except for the `i`-th character. 
+    - Then, `permutation()` will call itself with the smaller `rem` string and larger `prefix` because the `prefix` will now include the `i`-th character. 
+    - The removal of the `i`-th character from `str` and addition of the character to `prefix` will repeat until there are no more characters in the `str` argument. 
+    - The base case is an empty `str` argument, which then prints out the permutation. 
 
-##### Answer
+- 
+    if (str.length == 0) { // O(1) operation because checking the length and then printing out the value for the prefix takes constant time. 
+        System.out.println(prefix); 
+        // TODO: The prefix begins as "", but does it increase in size or something? 
+    } else {
+        for (int i = 0; i < str.length(); i++) { // O(str.length), which is O(n). 
+            String rem = str.substring(0, i) + str.substring(i+1); 
+            // How does substring work? 
+            // What is the number of steps? 
+            permutation(rem, prefix + str.charAt(i)); 
+            // It seems that permutation is calling itself and appending the i-th character from str to prefix. 
+        }
+    }
 
-The actual answer is O(N<sup>2</sup> * N!). How did Gayle come to this conclusion? 
-1. The number of permutations for a string is expressed as a factorial (n!), where n is the number of characters in a string. Why?
-    - For a seven character word, think of it as a 7-spot array. In the first spot, you can choose any of the seven characters. But once you've put that character in the first slot, the number of characters left decreases by one to 6. Thus, the options you have goes from 7, to 6, to 5, to 4, ... to 1, which is 7!. 
-2. 
 
 
-- [ ] Continue building on this... 
+What is the run time for `String rem = str.substring(0, i) + str.substring(i+1)`? 
+- How does `substring()` work? 
+    - I imagine that it could either build a character array and then add the characters from (beginningIndex, endIndex) one at a time. So that would take O(c) steps followed by copying the character the array to a string. I'm not sure how much that would take, but perhaps, maybe converting it takes a constant time, so it's only O(c) steps. 
+
+What is the runtime for `permutation(rem, prefix + str.charAt(i));`? 
+- The `str.charAt(i)` should take constant time, O(1), to access the i-th character. 
+- I'm not sure what the growth for adding a character to a string is. I imagine it would take more than constant time, maybe O(prefixLength) times. 
+
+- [ ] Continue learning how `substring()` works
