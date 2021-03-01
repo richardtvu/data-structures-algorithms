@@ -352,11 +352,7 @@ How does the program work?
         }
     }
 
-##### Trying to Grok the Solution 
-
-What is the runtime for `permutation(rem, prefix + str.charAt(i));`? 
-- The `str.charAt(i)` should take constant time, O(1), to access the i-th character. 
-- I'm not sure what the growth for adding a character to a string is. I imagine it would take more than constant time, maybe O(prefixLength) times. 
+- [ ] Create more study questions out of Gayle's explanation. 
 
 ##### Study Questions / Things to Follow Up On
 
