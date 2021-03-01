@@ -352,7 +352,7 @@ How does the program work?
         }
     }
 
-- [ ] Create more study questions out of Gayle's explanation. 
+ 
 
 ##### Study Questions / Things to Follow Up On
 
@@ -366,6 +366,23 @@ What is the runtime for the `substring()` from the `String` class as of Java 8?
 - O(n) because it [makes a copy of the string up to the number of characters specified](https://stackoverflow.com/a/4679775 ). 
 - ![](images/2021-02-27-08-38-44.png)
 
+##### Recall 
+
+- Line 10-11 requires O(n) times for the string concatenation and substring methods: 
+    - The `substring()` method takes O(n) time in Java 8+, where `n` refers to the number of characters in the string. This method requires O(n) time because it creates a new String object and copies over the characters in the specified range (e.g. `substring(0, i)` copies the characters from 0 to `i`). String concatenation also requires O(n) for each character being added to a string. 
+- Line 7 requires O(n) times: 
+    - Time to print a string increases in O(n) time, as the number of characters to print grows, so does the time grow linearly. 
+- Line 9 repeats Line 10-11 O(n) times. 
+
+So far, the overloaded `permutation()` function is going to take O(n<sup>2</sup>) operations, not including the function call on line 10. 
+
+- Line 11 will be called `n!`. On the first pass, it'll be called `n-1` times, then `n-2`, ... `2, 1` times. 
+- Therefore, if we multiply the runtime together, then it's O(N<sup>2</sup>*n!). 
 
 
+##### Want To Dos
+
+- [x] Recall 
+- [ ] Look at https://stackoverflow.com/questions/44430566/understanding-example-12-all-permutations-of-a-string-from-big-o-notation-crac to try and understand CTCI
+- [ ] Cont. creating study questions/revising understanding of example #12. 
 
