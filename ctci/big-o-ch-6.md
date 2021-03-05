@@ -422,4 +422,30 @@ int fib(int n, int[] memo) {
 
 ##### Solution 
 
-The runtime is indeed O(n). The `fib(i-1)` and `fib(i-2)` values are already calculated when `fib(i)` is called. Thus, accessing those values is O(1) due to array properties. Summing the two values is also O(1). Thus, you're repeating an O(1) operation N times, which is O(`n`). 
+The runtime is indeed O(n). The `fib(i-1)` and `fib(i-2)` values are already calculated when `fib(i)` is called. Thus, accessing those values is O(1) due to array properties. Summing the two values is also O(1). Thus, you're repeating an O(1) operation N times, which is O(n). 
+
+#### Example 16. The following function prints the powers of 2 from 1 through `n` (inclusive). For example, if `n` is 4, it would print 1, 2, and 4. What is its runtime? 
+
+```java
+int powersOf2(int n) {
+    if (n < 1) { // O(1)
+        return 0; 
+    }
+    else if (n == 1) { // O(1)
+        System.out.println(1); 
+        return 1; 
+    }
+    else { 
+        int prev = powersOf2(n/2); // This is a recursive call. As long as the input, `n` is greater than 1, then `powersOf2(n/2)` will be called. The input gets halved for each call, so it will take log N calls before stopping. 
+        int curr = prev*2; // O(1) 
+        System.out.println(curr); // O(1)
+        return curr; // O(1)
+    }
+}
+```
+
+The runtime should be O(log N) because the recursive case halves the input each time it calls itself. 
+
+
+### Additional Problems 
+
