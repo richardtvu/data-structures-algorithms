@@ -1,6 +1,6 @@
 # Chapter 6: Big O
 
-## Ankified Examples from the Chapter
+## Ankified Examples from the Chapter (Maybe Later)
 
 ### What is the **time** complexity and **space** complexity of this code fragment? 
 
@@ -449,3 +449,35 @@ The runtime should be O(log N) because the recursive case halves the input each 
 
 ### Additional Problems 
 
+#### 6.1 The following code computes the product of `a` and `b`. What is its runtime? 
+
+```java
+int product(int a, int b) {
+    int sum = 0; 
+    for (int i = 0; i < b; i++) {
+        sum += a; 
+    }
+    return sum; 
+}
+```
+
+##### Attempt 
+
+- The `for` loop repeats an operation `b` times. The operation repeated is adding the integer `a` to the sum, a constant time operation. Therefore, a constant time operation is repeated O(b) times. 
+
+#### 6.2 The following code computes `a`<sup>`b`</sup>. What is its runtime? 
+
+```java
+int power(int a, int b) {
+    if (b < 0) return 0; // error
+    else if (b == 0) return 1; 
+    else return a * power(a, b - 1); 
+}
+```
+- The `power()` function should be called about `b` times. For instance, `power(2, 3)`:
+    1. `power(2, 3)` = 2 * `power(2, 2)`;
+    2. `power(2, 2)` = 2 * `power(2, 1)`; 
+    3. `power(2, 1)` = 2 * `power(2, 0)`; 
+    4. `power(2, 0)` = 1 
+    
+- Therefore, 
