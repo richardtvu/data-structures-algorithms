@@ -390,3 +390,36 @@ Permutation will call itself `n!` times in line 11. The `for` loop will repeat t
 - [ ] Look at https://stackoverflow.com/questions/44430566/understanding-example-12-all-permutations-of-a-string-from-big-o-notation-crac to try and understand CTCI
 - [ ] Cont. creating study questions/revising understanding of example #12. 
 
+#### Example 15. The following code prints all Fibonacci numbers from 0 to n. However, this time, it stores (i.e. caches) previously computed values in an integer array. if it has already been computed, it just returns the cache. What is its runtime? 
+
+```java
+void allFib(int n) {
+    int[] memo = new int[n + 1]; 
+    for (int i = 0; i < n; i++) {
+        System.out.println(i + ": " + fib(i, memo)); 
+    }
+}
+
+int fib(int n, int[] memo) {
+    if (n <= 0) return 0; 
+    else if (n == 1) return 1;
+    else if (memo[n] > 0) return memo[n]; 
+
+    memo[n] = fib(n-1, memo) + fib(n-2, memo); 
+    return memo[n]; 
+}
+```
+
+##### First Attempt 
+
+- For an integer, `n`, generate an array of integers whose length is `n + 1`. StackOverflow seems to state that array initialization is O(1) from the standpoint of algorithm analysis, so I'll go with that. 
+- For each integer from 0 to `n`, not including `n`, print out the `i`-th fibonacci value. This `for` loop repeats an action about `n` times, so the runtime for this portion is O(n). 
+- Now, the question is, what is the runtime of `fib()`. 
+    - The `if` statement and `else if` statements take constant time, O(1). 
+    - `return memo[n]` takes O(1) because it directly accesses the value in memo[]. 
+    - The `memo[n] = fib(n-1, memo) + fib(n-2, memo);` will call `fib` twice. In this example, `fib` is called from a `for` loop that increments `i` by 1. Thus, this `memo[n] = fib(n-1, memo) ... `line should only run once per iteration. As such, I think it is O(1) in this context. 
+- Overall, I think the runtime is O(n). 
+
+##### Solution 
+
+The runtime is indeed O(n). The `fib(i-1)` and `fib(i-2)` values are already calculated when `fib(i)` is called. Thus, accessing those values is O(1) due to array properties. Summing the two values is also O(1). Thus, you're repeating an O(1) operation N times, which is O(`n`). 
