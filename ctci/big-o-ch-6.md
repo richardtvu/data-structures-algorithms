@@ -379,10 +379,14 @@ So far, the overloaded `permutation()` function is going to take O(n<sup>2</sup>
 - Line 11 will be called `n!`. On the first pass, it'll be called `n-1` times, then `n-2`, ... `2, 1` times. 
 - Therefore, if we multiply the runtime together, then it's O(N<sup>2</sup>*n!). 
 
+##### Explanation Draft
+
+Permutation will call itself `n!` times in line 11. The `for` loop will repeat that action `n` times. There will be `n! * n` function calls. In each call, there will be O(n) steps to either print out the `prefix` string in line 7 or create the `rem` string and add the `i`-th char to the prefix. Thus, there will be O(n*n!) calls, each of which take O(n) time to complete, so the Big Oh is O(n<sup>2</sup> * n!). 
 
 ##### Want To Dos
 
 - [x] Recall 
+- [x] Try to review it again
 - [ ] Look at https://stackoverflow.com/questions/44430566/understanding-example-12-all-permutations-of-a-string-from-big-o-notation-crac to try and understand CTCI
 - [ ] Cont. creating study questions/revising understanding of example #12. 
 
