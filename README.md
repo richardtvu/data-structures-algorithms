@@ -1,5 +1,11 @@
 # Data Structures and Algorithms
 
+## Current Status: Placed On Hold
+
+I've been able to keep up a habit of learning about DSAs for 0.5 hr almost everyday. However, as I've continued thinking about my goals and my highest aim, I've realized that DSAs aren't _the_ activities most aligned with my highest aim. My highest aim is to live the life of mastery, but my practicing DSAs was to get prepared for technical interviews. This focus on the short-term/medium-term was taking away from my focus on living the life of mastery. Thus, I've chosen to place learning DSAs on hold while I focus on my current internship and also check out the Launch School. I've checked it out before, but it wasn't a good fit for me before. Now, I'm drawn back to it because of my aim for living the life of mastery. 
+
+----
+
 This repository that will help document some of my progress in learning about Data Structures and Algorithms. Below is some of the things that I want to cover. 
 
 **Disclaimer**: This is not a school assignment and is something I'm doing for my own benefit, so I don't make the attempt to perfect it, make it original, or always put things in my own words, or cite my sources. 
